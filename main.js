@@ -76,7 +76,7 @@ function winDowOpen() {
 function move(block, e) {
     if (turnX === false) {
         // It's turn O
-        block.src = "https://i.postimg.cc/B8QwZ5Sk/O.png";
+        block.src = "https://i.postimg.cc/JDy80Crf/O.png";
         turnX = true;
         
         // add element index of parent
@@ -87,7 +87,7 @@ function move(block, e) {
         }
     } else {
         // It's turn X
-        block.src = "https://i.postimg.cc/mcXpPchD/X.png";
+        block.src = "https://i.postimg.cc/PpBj8VNP/X.png";
         turnX = false;
 
         // add element index of parent
