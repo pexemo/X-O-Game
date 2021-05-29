@@ -10,6 +10,10 @@ html {
     top: 50vh;
     transform: translate(-50%, -50%);
 }
+#container div img {
+    height: 100%;
+    width: 100%;
+}
 @media screen and (orientation:portrait) {
     #container {
         width: 96vw;
