@@ -1,0 +1,67 @@
+html {
+    background: #222;
+}
+#container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+    position: relative;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+}
+@media screen and (orientation:portrait) {
+    #container {
+        width: 96vw;
+        height: 96vw;
+    }
+}
+@media screen and (orientation:landscape) {
+    #container {
+        width: 85vh;
+        height: 85vh;
+    }
+}
+.bb {
+    border-bottom: 5px solid #ffa500;
+}
+.bl {
+    border-left: 5px solid #ffa500;
+}
+#winLine {
+    display: none;
+    width: 13px;
+    border-radius: 100%;
+    background: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#winDow {
+    display: none;
+    font-family: cursive;
+    position: absolute;
+    background: #444;
+    top: 50vh;
+    left: 50vw;
+    opacity: 0;
+    border-radius: 10px;
+    width: 300px;
+    height: 150px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    transition: opacity .5s;
+}
+#winDow h1 {
+    padding: 5px;
+}
+#winDow button {
+    background: #ffa500;
+    border-radius: 5px;
+    border: 0;
+    padding: 3px 6px;
+}
+#winDow button:active {
+    background: #ff4500;
+}
