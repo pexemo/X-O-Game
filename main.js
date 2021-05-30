@@ -56,7 +56,6 @@ function win(array) {
 function winDowClose() {
     setTimeout(() => {
         winDow.style.display = "none";
-        winLine.style.display = "none";
     }, 500);
     winDow.style.opacity = "0";
     setTimeout(() => {
