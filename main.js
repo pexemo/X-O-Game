@@ -73,10 +73,14 @@ function winDowOpen() {
     winDow.querySelector('h1').innerText = whoWin + " Win!";
 }
 
-function move(block, e) {
+const Xpot = '<svg version="1.1" id="prefix__Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve"><style>.prefix__st0{fill:none;stroke:orange;stroke-width:100;stroke-linecap:round;stroke-miterlimit:10}</style><path class="prefix__st0" d="M116 116l280 280M116 396l280-280"/></svg>';
+
+const Opot = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="256" r="180.4" fill="none" stroke="orange" stroke-width="75" stroke-linecap="round" stroke-miterlimit="10"/></svg>';
+
+function move(e) {
     if (turnX === false) {
         // It's turn O
-        block.src = "https://i.postimg.cc/JDy80Crf/O.png";
+        e.innerHTML = Opot;
         turnX = true;
         
         // add element index of parent
@@ -87,7 +91,7 @@ function move(block, e) {
         }
     } else {
         // It's turn X
-        block.src = "https://i.postimg.cc/PpBj8VNP/X.png";
+        e.innerHTML = Xpot;
         turnX = false;
 
         // add element index of parent
@@ -101,10 +105,9 @@ function move(block, e) {
 
 blocks.forEach(e => {
     e.addEventListener('click', () => {
-        let block = e.querySelector('img');
         // placed and win checker for any move
-        if (block.getAttribute('src') === "" && win(xPeac) != true && win(oPeac) != true) {
-            move(block, e);
+        if (e.innerHTML === "" && win(xPeac) != true && win(oPeac) != true) {
+            move(e);
         }
     })
 });
