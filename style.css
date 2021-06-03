@@ -1,5 +1,8 @@
 html {
-    background: #222;
+    background: #181a1b;
+}
+body {
+    margin: 0;
 }
 #container {
     display: grid;
@@ -27,26 +30,36 @@ html {
     }
 }
 .bb {
-    border-bottom: 5px solid #ffa500;
+    border-bottom: 4px solid #e49400;
+    margin: -1px;
 }
 .bl {
-    border-left: 5px solid #ffa500;
+    border-left: 4px solid #e49400;
+    margin: -1px;
+}
+.br {
+    border-right: 4px solid #e49400;
+    margin: -1px;
+}
+.bt {
+    border-top: 4px solid #e49400;
+    margin: -1px;
 }
 #winLine {
     display: none;
     width: 13px;
     border-radius: 100%;
-    background: red;
+    background: #a30000;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 49.52%;
+    left: 49.52%;
 }
 #winDow {
     display: none;
     font-family: cursive;
     position: absolute;
-    background: #444;
+    background: #292c2e;
+    color: #d8d4cf;
     top: 50vh;
     left: 50vw;
     opacity: 0;
@@ -61,10 +74,11 @@ html {
     padding: 5px;
 }
 #winDow button {
-    background: #ffa500;
+    background: #e49400;
     border-radius: 5px;
     border: 0;
     padding: 3px 6px;
+    color: #000;
 }
 #winDow button:active {
     background: #ff4500;
