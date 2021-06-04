@@ -1,5 +1,7 @@
 // blocks container
 const container = document.querySelector('#container');
+// score board 
+const scoreBoard = document.querySelector('#score-board');
 // any peace place
 const blocks = container.childNodes;
 const winLine = document.querySelector('#winLine');
@@ -55,6 +57,30 @@ function win(array) {
     winLine.style.height = getComputedStyle(container).height;
 }
 
+if (localStorage.key(0) !== null) {
+    scoreBoard.querySelector('#xScore').innerHTML = localStorage.getItem("X");
+    scoreBoard.querySelector('#oScore').innerHTML = localStorage.getItem("O");
+}
+
+function score(whoWin) {
+    if (localStorage.key(0) === null) {
+        localStorage.setItem(whoWin, 1);
+        if (whoWin === "X") {
+            localStorage.setItem("O", 0);
+        } else {
+            localStorage.setItem("X", 0);
+        }
+    } else {
+        let score = parseInt(localStorage.getItem(whoWin)) + 1;
+        localStorage.setItem(whoWin, score);
+    }
+}
+
+function scoreReset() {
+    localStorage.clear();
+    scoreBoard.querySelectorAll('p').forEach(e => e.innerHTML = 0);
+}
+
 function winDowClose() {
     setTimeout(() => {
         winDow.style.display = "none";
@@ -67,14 +93,13 @@ function winDowClose() {
 }
 
 function winDowOpen(whoWin) {
-    winDow.style.display = "block";
+    winDow.style.display = "flex";
     setTimeout(() => {
         winDow.style.opacity = "1";
     }, 1);
     if (whoWin === "equal") {
         winDow.querySelector('h1').innerText = "Equal!";
     } else {
-        console.log(getComputedStyle(winLine).transform);
         winLine.style.display = "block";
         winDow.querySelector('h1').innerText = whoWin + " Win!";
     }
@@ -94,6 +119,7 @@ function move(e) {
         oPeac.push(getElIndex(e));
         if (win(oPeac)) {
             winDowOpen("O");
+            score("O");
         }
     } else {
         // It's turn X
@@ -104,6 +130,7 @@ function move(e) {
         xPeac.push(getElIndex(e));
         if (win(xPeac)) {
             winDowOpen("X");
+            score("X");
         }
     }
 }
